@@ -1,0 +1,27 @@
+<div class="form-card">
+    <h1 class="text-center">Login Page</h1>
+    <form #loginForm="ngForm" (submit)="onLogin(loginForm)">
+        <div class="form-grp">
+            <label for="email">Email</label>
+            <input name="email" id="email" type="email" class="form-control" placeholder="Enter email" #emailRef="ngModel" [(ngModel)]="email" 
+            required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [disabled]="isLoading">
+            <div *ngIf="emailRef.touched" class="text-danger">
+                <small *ngIf="emailRef.errors?.required">Email is Required.</small>
+                <small *ngIf="emailRef.errors?.pattern">Email is Invalid.</small>
+            </div>
+        </div>
+
+        <div class="form-grp">
+            <label for="password">Password</label>
+            <input name="password" id="password" type="password" class="form-control" placeholder="Password" #passwordRef="ngModel" ngModel 
+            required minlength=8 [disabled]="isLoading">
+            <div *ngIf="passwordRef.touched" class="text-danger">
+                <small *ngIf="passwordRef.errors?.required">Password is Required.</small>
+                <small *ngIf="passwordRef.errors?.minlength">Password should have minimum length of 8.</small>
+            </div>
+        </div>
+        <button class="btn-submit" [disabled]="isLoading">
+            {{isLoading ? 'Loging In' : 'Login'}}
+        </button>
+    </form>
+</div>

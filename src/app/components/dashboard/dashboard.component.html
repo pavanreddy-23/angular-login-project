@@ -1,0 +1,10 @@
+<section class="dashboard-section">
+    <div class="card-grp">
+        <div *ngFor="let rec of records" class="record-card">
+            <img class="rec-thumbnail" [src]="rec.url" alt="">
+            <h4 class="text-center">{{rec.title}}</h4>
+            <button class="btn-delete" (click)="onDelete(rec.id)">Delete</button>
+        </div>
+    </div>
+    <div *ngIf="isLoading" class="loader">Loading...</div>
+</section>

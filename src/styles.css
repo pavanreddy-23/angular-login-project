@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", 'Roboto', 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.text-center{
+    text-align: center;
+}
